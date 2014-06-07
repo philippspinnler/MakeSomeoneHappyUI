@@ -1,0 +1,35 @@
+<form role="form" novalidate="" name="registerForm" ng-submit="register()">
+
+    <div class="alert alert-danger" ng-show="wrongCredentials"><b>Oh snap! </b> Wrong Credentials</div>
+
+    <div class="form-group" ng-class="{ 'has-error': registerForm.email.$invalid && registerForm.email.$dirty }">
+        <label class="control-label" for="">Name</label>
+        <input class="form-control" type="text" name="name" ng-model="user.name" required="">
+        <p class="help-block" ng-show="registerForm.name.$invalid && registerForm.name.$dirty && registerForm.submitted">
+            Email invalid
+        </p>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error': registerForm.email.$invalid && registerForm.email.$dirty }">
+        <label class="control-label" for="">Email</label>
+        <input class="form-control" type="email" name="email" ng-model="user.email" required="">
+        <p class="help-block" ng-show="registerForm.email.$invalid && registerForm.email.$dirty && registerForm.submitted">
+            Email invalid
+        </p>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="">Password</label>
+        <input class="form-control" type="password" name="password" ng-model="user.password" required="">
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label" for="">Confirm Password</label>
+        <input class="form-control" ng-model='user.password_verify' type="password" name='confirm_password' required data-password-verify="user.password">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" ng-disabled="registerForm.$invalid">Register</button>
+    </div>
+</form>
